@@ -1,0 +1,101 @@
+complete_from_path = true
+ctrlc_exit = false
+disable_table_indexes = false
+filesize_format = "kb"
+filesize_metric = true
+nonzero_exit_errors = true
+path = ["~/.bin", "~/.local/bin", "~/.cargo/bin", "~/.yarn/bin", "~/go/bin", "/usr/local/go/bin"]
+pivot_mode = "auto"
+plugin_dirs = []
+prompt = "starship prompt"
+# prompt = "echo 'λ '"
+rm_always_trash = true
+skip_welcome_message = true
+startup = [
+    "def nudown [] {fetch https://api.github.com/repos/nushell/nushell/releases | get assets | select name download_count}",
+    "def nuver [] {version | pivot key value}",
+    "alias l = ls",
+    "alias ll = ls --long",
+    "alias la = ls --all",
+    "alias lla = ls --long --all",
+    "alias update = sudo pacman -Syyu --color auto",
+    "alias cleanup = sudo pacman -Rns $(pacman -Qtdq)",
+    "alias upclean = update && cleanup",
+    "alias sr = sudo reboot",
+    "alias ssn = sudo shutdown now",
+    "mkdir ~/.cache/starship",
+    "starship init nu | save ~/.cache/starship/init.nu",
+    "source ~/.cache/starship/init.nu",
+]
+table_mode = "rounded"
+
+# [color_config]
+# header_align = "l"
+# header_bold = true
+# header_color = "c"
+# index_color = "rd"
+# leading_trailing_space_bg = "white"
+# primitive_binary = "cyan"
+# primitive_boolean = "green"
+# primitive_columnpath = "cyan"
+# primitive_date = "ru"
+# primitive_decimal = "red"
+# primitive_duration = "blue"
+# primitive_filesize = "ur"
+# primitive_int = "green"
+# primitive_line = "yellow"
+# primitive_path = "yellow"
+# primitive_pattern = "white"
+# primitive_range = "purple"
+# primitive_string = "pb"
+# separator_color = "purple"
+
+[color_config]
+primitive_int = "green"
+primitive_decimal = "red"
+primitive_filesize = "ur"
+primitive_string = "pb"
+primitive_line = "yellow"
+primitive_columnpath = "cyan"
+primitive_pattern = "white"
+primitive_boolean = "green"
+primitive_date = "ru"
+primitive_duration = "blue"
+primitive_range = "purple"
+primitive_path = "yellow"
+primitive_binary = "cyan"
+separator_color = "purple"
+header_align = "l" # left|l, right|r, center|c
+header_color = "c" # green|g, red|r, blue|u, black|b, yellow|y, purple|p, cyan|c, white|w
+header_bold = true
+index_color = "rd"
+leading_trailing_space_bg = "white"
+
+[line_editor]
+auto_add_history = true
+bell_style = "visible"
+color_mode = "enabled"
+completion_prompt_limit = 100
+completion_type = "circular"
+edit_mode = "nvim"
+history_duplicates = "ignoreconsecutive"
+history_ignore_space = false
+keyseq_timeout_ms = 500
+max_history_size = 100000
+tab_stop = 4
+
+[textview]
+colored_output = true
+grid = false
+header = true
+line_numbers = true
+pager = "less"
+paging_mode = "QuitIfOneScreen"
+snip = true
+tab_width = 4
+term_width = "default"
+theme = "TwoDark"
+true_color = true
+use_italics = true
+vcs_modification_markers = true
+wrapping_mode = "NoWrapping"
