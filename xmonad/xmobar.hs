@@ -1,4 +1,4 @@
-Config
+Config 
   { position = TopP 0 0,
     font = "xft:Iosevka:Style=bold:pixelsize=15:antialias=true:hinting=true",
     additionalFonts =
@@ -43,4 +43,3 @@ Config
     template = " <icon=haskell.xpm/> <fc=#98c379>%UnsafeStdinReader%</fc> } <fc=#56b6c2>%date%</fc> { <fc=#e06c75><fn=1></fn> %pacupdate%</fc> <fc=#666666>|</fc> <fc=#c678dd>%multicpu%</fc> <fc=#666666>|</fc> <fc=#46d9ff>%memory%</fc> "
   }
 
--- rust.xpm

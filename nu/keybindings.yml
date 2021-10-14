@@ -80,10 +80,10 @@
       BackwardChar: 1
 
 # Complete Hint
-- key: # C-f
-    Char: F
+- key: # C-<Tab>
+    Tab:
   modifiers:
-    CTRL:
+    ALT:
   binding:
     CompleteHint:      
 - key: # C-<right>

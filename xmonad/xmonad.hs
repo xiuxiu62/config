@@ -31,7 +31,7 @@ _xmobar :: String
 _xmobar = "~/.config/xmonad/xmobar.hs"
 
 _workspaces :: [String]
-_workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+_workspaces = ["I", "II", "III", "IV", "V"]
 
 _focusFollowsMouse :: Bool
 _focusFollowsMouse = True
@@ -62,6 +62,7 @@ _keys conf@XConfig {XMonad.modMask = modm} =
   M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf),
       ((modm .|. shiftMask, xK_p), spawn "dmenu_run"),
+      ((modm, xK_p), spawn "rofi -show drun"),
       ((modm .|. shiftMask, xK_w), spawn "firefox"),
       ((modm .|. shiftMask, xK_e), spawn "emacs"),
       ((modm .|. shiftMask, xK_s), spawn "spotify"),
@@ -138,10 +139,7 @@ _layoutHook =
     noBorders $
       gaps
         _defaultGaps
-        ( tiled
-            ||| Mirror tiled
-            ||| Full
-        )
+        (tiled ||| Mirror tiled ||| Full)
         ||| Full
   where
     tiled = Tall nmaster delta ratio
