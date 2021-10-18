@@ -21,21 +21,27 @@ path = [
      "/opt/android-sdk/cmdline-tools/latest/bin",
      "/home/xiuxiu/.local/share/solana/install/active_release/bin",
 ]
-startup = [
-    "def nudown [] {fetch https://api.github.com/repos/nushell/nushell/releases | get assets | select name download_count}",
-    "def nuver [] {version | pivot key value}",
+startup = [ 
     "alias l = ls",
     "alias ll = ls --long",
     "alias la = ls --all",
     "alias lla = ls --long --all",
+    "alias dump = col --no-backspaces --spaces",
     "alias update = sudo pacman -Syyu --color auto",
-    "alias cleanup = sudo pacman -Rns $(pacman -Qtdq)",
+    "alias cleanup = bash -c 'sudo pacman -Rns $(pacman -Qtdq)'",
     "alias upclean = update && cleanup",
     "alias sr = sudo reboot",
     "alias ssn = sudo shutdown now",
+
+    "def nuver [] { version | pivot key value }",
+    "def manout [ prog ] { man $prog | dump }",
+    "def mansave [ prog ] { man $prog | save $'(build-string $prog '.man')' }",
+
     "mkdir ~/.cache/starship",
     "starship init nu | save ~/.cache/starship/init.nu",
     "source ~/.cache/starship/init.nu",
+
+
 ]
 table_mode = "rounded"
 
