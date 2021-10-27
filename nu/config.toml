@@ -32,6 +32,8 @@ startup = [
     "alias upclean = update && cleanup",
     "alias sr = sudo reboot",
     "alias ssn = sudo shutdown now",
+    "alias nv = nvim",
+    "alias tm = tmux",
 
     "def nuver [] { version | pivot key value }",
     "def manout [ prog ] { man $prog | dump }",
