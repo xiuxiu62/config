@@ -25,7 +25,7 @@ _modMask :: KeyMask
 _modMask = mod4Mask
 
 _terminal :: String
-_terminal = "alacritty -e tmux"
+_terminal = "alacritty"
 
 _xmobar :: String
 _xmobar = "~/.config/xmonad/xmobar.hs"
