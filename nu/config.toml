@@ -34,6 +34,12 @@ startup = [
     "alias ssn = sudo shutdown now",
     "alias nv = nvim",
     "alias tm = tmux",
+    "alias gstatus = git status",
+    "alias gadd = git add",
+    "alias gcommit = git commit",
+    "alias gpush = git push",
+    "alias gpull = git pull",
+    "alias gfetch = git fetch",
 
     "def nuver [] { version | pivot key value }",
     "def manout [ prog ] { man $prog | dump }",

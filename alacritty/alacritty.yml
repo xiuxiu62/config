@@ -85,7 +85,7 @@ Default:
   - (Linux/BSD) /home/xiuxiu/.cargo/bin/nu
   - (Windows) powershell
 shell:
- program: /home/xiuxiu/.cargo/bin/nu
+   program: /home/xiuxiu/.cargo/bin/nu 
 working_directory: none
 
 # Mouse bindings
