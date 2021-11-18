@@ -26,20 +26,35 @@ startup = [
     "alias ll = ls --long",
     "alias la = ls --all",
     "alias lla = ls --long --all",
+
     "alias dump = col --no-backspaces --spaces",
+
     "alias update = sudo pacman -Syyu --color auto",
     "alias cleanup = bash -c 'sudo pacman -Rns $(pacman -Qtdq)'",
     "alias upclean = update && cleanup",
+
     "alias sr = sudo reboot",
     "alias ssn = sudo shutdown now",
+
     "alias nv = nvim",
     "alias tm = tmux",
+
     "alias gstatus = git status",
     "alias gadd = git add",
     "alias gcommit = git commit",
     "alias gpush = git push",
     "alias gpull = git pull",
     "alias gfetch = git fetch",
+
+    "alias cupdate = cargo update",
+    "alias ccheck = cargo check",
+    "alias cbuild = cargo build",
+    "alias crelease = cargo build --release",
+    "alias crun = cargo run",
+    "alias ctest = cargo test",
+    "alias cclean = cargo clean",
+    "alias cadd = cargo add",
+    "alias crm = cargo rm",
 
     "def nuver [] { version | pivot key value }",
     "def manout [ prog ] { man $prog | dump }",
@@ -48,8 +63,6 @@ startup = [
     "mkdir ~/.cache/starship",
     "starship init nu | save ~/.cache/starship/init.nu",
     "source ~/.cache/starship/init.nu",
-
-
 ]
 table_mode = "rounded"
 
