@@ -86,6 +86,7 @@ Default:
   - (Windows) powershell
 shell:
    program: /home/xiuxiu/.cargo/bin/nu 
+   # program: /bin/zsh
 working_directory: none
 
 # Mouse bindings
@@ -114,11 +115,14 @@ working_directory: none
 #mouse_bindings:
 #  - { mouse: Middle, action: PasteSelection }
 
+key_bindings:
+  - { key: Plus, mods: Shift, action: ResetFontSize }
+  - { key: Plus, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
+
 # Key bindings
 #
-# Key bindings are specified as a list of objects. For example, this is the
-# default paste binding:
-#
+# Key bindings are specified as a list of objects. For example, this is the default paste binding:
 # `- { key: V, mods: Control|Shift, action: Paste }`
 #
 # Each key binding will specify a:
@@ -429,9 +433,9 @@ working_directory: none
   #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
   #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
 
-#debug:
+# debug:
   # Display the time it takes to redraw each frame.
-  #render_timer: false
+  # render_timer: false
 
   # Keep the log file after quitting Alacritty.
   #persistent_logging: false
