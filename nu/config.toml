@@ -8,7 +8,7 @@ pivot_mode = "auto"
 plugin_dirs = []
 prompt = "starship prompt"
 # prompt = "echo 'λ '"
-rm_always_trash = true
+rm_always_trash = false
 skip_welcome_message = true
 path = [
      "~/.bin",

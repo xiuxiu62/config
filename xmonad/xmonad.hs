@@ -1,10 +1,12 @@
 -- import Graphics.X11.ExtraTypes.XF86
 
+import Control.Monad (liftM, sequence)
 import Data.Array
 import qualified Data.Map as M
 import Data.Maybe (fromJust, isJust)
 import Data.Monoid
 import Data.String
+import Data.List (intercalate)
 import System.Exit
 import System.IO
 import XMonad
@@ -20,6 +22,10 @@ import qualified XMonad.StackSet as W
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Themes
+import XMonad.Util.Loggers
+import XMonad.Util.NamedWindows (getName, unName)
+
+import qualified XMonad.StackSet as W
 
 _modMask :: KeyMask
 _modMask = mod4Mask
@@ -31,7 +37,7 @@ _xmobar :: String
 _xmobar = "~/.config/xmonad/xmobar.hs"
 
 _workspaces :: [String]
-_workspaces = ["I", "II", "III", "IV", "V"]
+_workspaces = ["1", "2", "3", "4", "5"]
 
 _focusFollowsMouse :: Bool
 _focusFollowsMouse = True
@@ -151,6 +157,25 @@ _layoutHook =
 _logHook :: X ()
 _logHook = return ()
 
+logTitles :: (String -> String) -> Logger
+logTitles ppFocus =
+        let
+            windowTitles windowset = sequence (map (fmap showName . getName) (W.index windowset))
+                where
+                    fw = W.peek windowset
+                    showName nw =
+                        let
+                            window = unName nw
+                            name = shorten 50 (show nw)
+                        in
+                            if maybe False (== window) fw
+                                then
+                                    ppFocus name
+                                else
+                                    name
+        in 
+            withWindowSet $ liftM (Just . (intercalate " | ")) . windowTitles
+
 defaults ::
   XConfig
     ( ModifiedLayout
@@ -194,9 +219,11 @@ main = do
           logHook =
             dynamicLogWithPP $
               xmobarPP
-                { ppOutput = hPutStrLn xmproc,
-                  ppTitle = xmobarColor _xmobarTitleColor "" . shorten 100,
-                  ppCurrent = xmobarColor _xmobarCurrentWorkspaceColor "",
-                  ppSep = "   "
+                { 
+                    ppOutput = hPutStrLn xmproc
+                  , ppTitle = xmobarColor _xmobarTitleColor "" . shorten 100
+                  , ppExtras = [logTitles (xmobarColor "magenta" "")]
+                  , ppCurrent = xmobarColor _xmobarCurrentWorkspaceColor ""
+                  , ppSep = "   "
                 }
         }

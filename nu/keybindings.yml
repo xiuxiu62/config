@@ -83,16 +83,9 @@
 - key: # C-<Tab>
     Tab:
   modifiers:
-    ALT:
-  binding:
-    CompleteHint:      
-- key: # C-<right>
-    Right:
-  modifiers:
     CTRL:
   binding:
-    CompleteHint:
-
+    CompleteHint:      
 
 # Interrupt/Cancel edition
 - key: # C-c

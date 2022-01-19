@@ -116,7 +116,7 @@ working_directory: none
 #  - { mouse: Middle, action: PasteSelection }
 
 key_bindings:
-  - { key: Plus, mods: Shift, action: ResetFontSize }
+  # - { key: Plus, mods: Shift, action: ResetFontSize }
   - { key: Plus, mods: Control, action: IncreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
 
