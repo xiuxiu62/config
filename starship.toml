@@ -1,3 +1,6 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
 add_newline = false
 
 [line_break]
@@ -36,19 +39,32 @@ style = "bold white"
 [git_state]
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
 
-[git_status]
-conflicted = "⚔️ "
-ahead = "🏎️ 💨 ×${count} "
-behind = "🐢 ×${count} "
-diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} "
-untracked = "🛤️  ×${count} "
-stashed = "📦 "
-modified = "📝 ×${count} "
-staged = "🗃️  ×${count} "
-renamed = "📛 ×${count} "
-deleted = "🗑️  ×${count} "
-style = "bright-white"
-format = "$all_status$ahead_behind"
+# [git_status]
+# conflicted = "conflicts "
+# ahead = "A×${count} "
+# behind = "B×${count} "
+# diverged = "d a×${ahead_count} b×${behind_count} "
+# up_to_date = "✓"
+# untracked = "U×${count} "
+# stashed = "s×${count} "
+# modified = "M×${count} "
+# staged = "S×${count} "
+# renamed = "R×${count} "
+# deleted = "D×${count} "
+# format = "$all_status$ahead_behind"
+
+# conflicted = "⚔️ "
+# ahead = "🏎️ 💨 ×${count} "
+# behind = "🐢 ×${count} "
+# diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} "
+# untracked = "🛤️  ×${count} "
+# stashed = "📦 "
+# modified = "📝 ×${count} "
+# staged = "🗃️  ×${count} "
+# renamed = "📛 ×${count} "
+# deleted = "🗑️  ×${count} "
+# style = "bright-white"
+# format = "$all_status$ahead_behind"
 
 [cmd_duration]
 min_time = 5_000  # Show command duration over 5,000 milliseconds (=5 sec)
@@ -56,10 +72,3 @@ format = " took [$duration]($style)"
 
 [package]
 disabled = true
-
-[nodejs]
-format = "via [🤖 $version](bold green) "
-
-[deno]
-format = "via [🦕 $version](green bold) "
-
